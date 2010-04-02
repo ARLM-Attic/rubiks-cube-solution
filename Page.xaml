@@ -1,0 +1,63 @@
+﻿<!-- Rubik Cube's 3D presentation and solution
+ is developed by Halyna Shashyna
+ Halyna.Shashyna@gmail.com 
+ Page.xaml -->
+    <UserControl x:Class="RubikCube.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    
+    
+    Width="800" Height="550" >
+    <Canvas x:Name='root' Width='800' Height='550' >
+        <Grid  Background="LightGray"  >
+            <Grid.RenderTransform>
+                <ScaleTransform x:Name='mainScale' ScaleX='1' ScaleY='1'/>
+            </Grid.RenderTransform>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" ></ColumnDefinition>
+                <ColumnDefinition Width="660"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Canvas Width="140" Height="550" Grid.Column="0" Background="LightGray">
+
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="10" Height="34" Content="Reset" Margin="13,10,10,10" x:Name="button_reset" IsEnabled="False" VerticalAlignment="Top"  Click="button_reset_Click" HorizontalAlignment="Left" Width="113"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}"  Canvas.Top="50" Height="34" Content="Animated Reset" HorizontalAlignment="Left" Margin="13,10,10,10"  IsEnabled="False" x:Name="button_animated_reset" VerticalAlignment="Top" Width="113" Click="button_animated_reset_Click"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="90" Height="34" Content="Undo Last Rotation" HorizontalAlignment="Left" Margin="13,10,10,10"  IsEnabled="False" x:Name="button_back" VerticalAlignment="Top" Width="113" Click="button_back_Click"></Button>
+
+                <Slider  Canvas.Top="145" x:Name="hSlider"  Width="70" Foreground="DarkRed" Canvas.Left="20" ></Slider>
+                <TextBox Foreground="DarkRed"  BorderThickness="0" Canvas.Left="90" Background="Transparent" Canvas.Top="145" Opacity="50" Text="Scale"></TextBox>
+
+                <ComboBox Foreground="DarkRed" BorderBrush="{StaticResource YBorderDark}"  Canvas.Top="170" x:Name="dimen_N"  Height="20" Canvas.Left="10" HorizontalAlignment="Left"  Width="70" Margin="10,10,10,10"></ComboBox>
+                
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="210" Height="34"  Margin="13,10,10,10" x:Name="RandomPosition"  VerticalAlignment="Top" Click="RandomPosition_Click" HorizontalAlignment="Left" Width="113"  Content="Random position"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="250" Height="34" HorizontalAlignment="Left" IsEnabled="False" Margin="13,10,10,10" Name="Solve" Width="113" Click="Solve_Click" Content="Solve it all!!!"></Button>
+
+                <TextBox Text="Solve step by step" Foreground="DarkRed" BorderThickness="0" Canvas.Left="10"  Background="Transparent"  Canvas.Top="300"></TextBox>
+
+                <Border    Canvas.Top="330" x:Name="solutionButtonGroupBorder" BorderBrush="BurlyWood"  BorderThickness="1" CornerRadius="4" Margin="4,2,2,2" Width="133" Height="210"></Border>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="330" Height="34"  Margin="13,10,10,10" Name="TopCorners" FontSize="10"  VerticalAlignment="Top" Click="TopCorners_Click" HorizontalAlignment="Left" Width="113" Content="I - Top corners"  IsEnabled="False" ></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="370" Height="34"  Opacity="50" HorizontalAlignment="Left" FontSize="10" Margin="13,10,10,10" Name="TopWings" VerticalAlignment="Top" Width="113" Click="TopWings_Click" Content="II - Top wings"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="410" Height="34"  HorizontalAlignment="Left" FontSize="10" Margin="13,10,10,10" Name="BottomCorners" VerticalAlignment="Top" Width="113" Click="BottomCorners_Click" Content="III - Bottom corners"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="450" Height="34" Margin="13,10,10,10" FontSize="10"  Name="BottomWings" VerticalAlignment="Top" HorizontalAlignment="Left" Width="113" Click="BottomWings_Click" Content="IV - Bottom wings"></Button>
+                <Button  Style="{StaticResource ButtonCaramel}"  Foreground="{StaticResource YBorderDark}" Canvas.Top="490" Height="34" HorizontalAlignment="Left"  FontSize="10" Margin="13,10,10,10" Name="middleSlice" Width="113" Click="middleSlice_Click" Content="V - Middle Slice"></Button>
+
+            </Canvas>
+            <Grid x:Name ="grid" Grid.Column="1"  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Canvas  Width="660" Height="550" Grid.Column="0" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    
+                    <Image  Source="goodmorningsunshine800.jpg" Width="660" Height="550"  Stretch="Uniform" />
+                   
+                    <TextBlock  Canvas.Top="20"  Foreground="White" FontWeight="Bold" Canvas.Left="140"  HorizontalAlignment="Center"
+                           FontFamily="Verdana" FontSize="13">  Rubik's cube 3D Presentation with animated solution.
+                        
+                    <LineBreak/> 
+                    <LineBreak/> 
+                    To manually rotate cube slices use left button of a mouse.
+
+                    </TextBlock>
+                    
+
+                </Canvas>
+            </Grid>
+        </Grid>
+    </Canvas>
+</UserControl>
